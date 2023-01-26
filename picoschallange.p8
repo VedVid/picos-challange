@@ -62,23 +62,23 @@ function move_player()
  local x = player.x
  local y = player.y
  
- if btn(0) then
-  x -= 1
+ if btnp(0) then
+  x -= 8
   player.idle = 0
   player.spr_current = player.spr_left
  end   
- if btn(1) then
-  x += 1
+ if btnp(1) then
+  x += 8
   player.idle = 0
   player.spr_current = player.spr_right
  end
- if btn(2) then
-  y -= 1
+ if btnp(2) then
+  y -= 8
   player.idle = 0
   player.spr_current = player.spr_up
  end
- if btn(3) then
-  y += 1
+ if btnp(3) then
+  y += 8
   player.idle = 0
   player.spr_current = player.spr_down
  end
@@ -128,7 +128,6 @@ function detect_flags(sprite)
  flags.door = fget(sprite, 3)
  return flags
 end 
-
 __gfx__
 00000000066666600666660000666660066666600666666000000000000000000000000000000000000000000000000000000000000000000000000000000000
 00000000600000066000006006000006603003066000000600000000000000000000000000000000000000000000000000000000000000000000000000000000
