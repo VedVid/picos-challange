@@ -117,6 +117,9 @@ function move_player()
   end
   player.x = x
   player.y = y
+  if sprite == 21 then
+   next_level()
+  end
  elseif flags.door then 
   if ((sprite == 17 and player.key_gold) or
       (sprite == 18 and player.key_green) or
@@ -163,6 +166,12 @@ function remove_sprite(x, y)
  mset(i, j, 0)
 end
 
+-->8
+--levels
+
+
+function next_level()
+end
 __gfx__
 00000000066666600666660000666660066666600666666000000000000000000000000000000000000000000000000000000000000000000000000000000000
 00000000600000066000006006000006603003066000000600000000000000000000000000000000000000000000000000000000000000000000000000000000
