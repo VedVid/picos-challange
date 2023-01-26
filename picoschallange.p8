@@ -1,5 +1,36 @@
 pico-8 cartridge // http://www.pico-8.com
 version 39
+__lua__
+--main
+
+function _init()
+  player = new_player(0, 0, 1)
+end
+
+function _update()
+end
+
+function _draw()
+  cls()
+  spr(player.spr_current,
+      player.x, player.y)
+end
+-->8
+--player
+
+function new_player(x, y, lvl)
+  local player = {}
+  player.x = x
+  player.y = y
+  player.lvl = lvl
+  player.spr_idle = 1
+  player.spr_left = 2
+  player.spr_right = 3
+  player.spr_up = 4
+  player.spr_down = 5
+  player.spr_current = 1
+  return player
+end
 __gfx__
 00000000066666600666660000666660066666600666666000000000000000000000000000000000000000000000000000000000000000000000000000000000
 00000000600000066000006006000006603003066000000600000000000000000000000000000000000000000000000000000000000000000000000000000000
