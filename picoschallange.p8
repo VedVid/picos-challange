@@ -7,7 +7,6 @@ function _init()
  final_door_x = 0
  final_door_y = 0
  player = new_player()
- game_map = new_map()
  set_up_level()
 end
 
@@ -148,21 +147,6 @@ end
 --map and collisions
 
 
-function new_map()
- local nmap = {}
- nmap.cell_x = 0
- nmap.cell_y = 0
- nmap.start_x = 0
- nmap.start_y = 0
- nmap.cell_w = 16
- nmap.cell_h = 16
- nmap.layer = 0
- nmap.final_door_x = 0
- nmap.final_door_y = 0
- return nmap
-end
-
-
 function toggle_final_door()
  local x = final_door_x
  local y = final_door_y
@@ -222,7 +206,6 @@ function level_1()
  player.level = 1
  player.x = 5*8
  player.y = 5*8
- game_map = new_map()
  final_door_x = 2*8
  final_door_y = 2*8
 end
@@ -233,8 +216,6 @@ function level_2()
  player.level = 2
  player.x = (5*8)+128
  player.y = 5*8
- game_map = new_map()
- game_map.cell_x = 16
 	final_door_x = 232
 	final_door_y = 16
 	camera(128,0)
