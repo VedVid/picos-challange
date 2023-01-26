@@ -4,6 +4,8 @@ __lua__
 --main
 
 function _init()
+ final_door_x = 0
+ final_door_y = 0
  player = new_player()
  game_map = new_map()
  set_up_level()
@@ -16,12 +18,7 @@ end
 
 function _draw()
  cls()
- map(game_map.cell_x,
-     game_map.cell_y,
-     game_map.start_x,
-     game_map.start_y,
-     game_map.cell_w,
-     game_map.cell_h)
+ map(0,0)
  spr(player.spr_current,
      player.x, player.y)
  oxg = 0
@@ -167,8 +164,8 @@ end
 
 
 function toggle_final_door()
- local x = game_map.final_door_x
- local y = game_map.final_door_y
+ local x = final_door_x
+ local y = final_door_y
  local sprite = detect_sprite(x, y)
  if sprite == 22 then
   replace_sprite(x, y, 23)
@@ -220,25 +217,27 @@ end
 
 
 function level_1()
+ camera(0,0)
  player = new_player()
  player.level = 1
  player.x = 5*8
  player.y = 5*8
  game_map = new_map()
- game_map.final_door_x = 2*8
- game_map.final_door_y = 2*8
+ final_door_x = 2*8
+ final_door_y = 2*8
 end
 
 
 function level_2()
  player = new_player()
  player.level = 2
- player.x = 5*8
+ player.x = (5*8)+128
  player.y = 5*8
  game_map = new_map()
  game_map.cell_x = 16
-	game_map.final_door_x = 14*8
-	game_map.final_door_y = 2*8
+	final_door_x = 232
+	final_door_y = 16
+	camera(128,0)
 end
 
 
