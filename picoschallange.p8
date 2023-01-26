@@ -120,6 +120,8 @@ function move_player()
   player.y = y
   if sprite == 21 then
    next_level()
+  elseif sprite == 26 then
+   remove_sprite(x, y)
   end
  elseif flags.door then 
   if ((sprite == 17 and player.key_gold) or
@@ -141,6 +143,7 @@ function move_player()
   end
  elseif sprite == 27 then
   replace_sprite(x, y, 28)
+  toggle_final_door()
  end
 end
 
@@ -157,7 +160,25 @@ function new_map()
  nmap.cell_w = 16
  nmap.cell_h = 16
  nmap.layer = 0
+ nmap.final_door_x = 0
+ nmap.final_door_y = 0
  return nmap
+end
+
+
+function toggle_final_door()
+ local x = game_map.final_door_x
+ local y = game_map.final_door_y
+ local sprite = detect_sprite(x, y)
+ if sprite == 22 then
+  replace_sprite(x, y, 23)
+ elseif sprite == 23 then
+  replace_sprite(x, y, 24)
+ elseif sprite == 24 then
+  replace_sprite(x, y, 25)
+ elseif sprite == 25 then
+  replace_sprite(x, y, 26)
+ end
 end
 
 
@@ -201,6 +222,8 @@ end
 function level_1()
  player.x = 5*8
  player.y = 5*8
+ game_map.final_door_x = 2*8
+ game_map.final_door_y = 2*8
 end
 
 
