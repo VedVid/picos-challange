@@ -8,6 +8,8 @@ function _init()
 end
 
 function _update()
+  move_player()
+  update_player()
 end
 
 function _draw()
@@ -29,8 +31,41 @@ function new_player(x, y, lvl)
   player.spr_up = 4
   player.spr_down = 5
   player.spr_current = 1
+  player.idle = 0
   return player
 end
+
+function update_player()
+  player.idle += 1
+  if player.idle > 45 then
+    player.spr_current = player.spr_idle
+    player.idle = 0
+  end
+end  
+
+function move_player()
+  if btn(0) and player.x > 0 then
+    player.x -= 1
+    player.idle = 0
+    player.spr_current = player.spr_left
+  end
+  if btn(1) and player.x < 120 then
+    player.x += 1
+    player.idle = 0
+    player.spr_current = player.spr_right
+  end
+  if btn(2) and player.y > 0 then
+    player.y -= 1
+    player.idle = 0
+    player.spr_current = player.spr_up
+  end
+  if btn(3) and player.y < 120 then
+    player.y += 1
+    player.idle = 0
+    player.spr_current = player.spr_down
+  end
+end
+
 __gfx__
 00000000066666600666660000666660066666600666666000000000000000000000000000000000000000000000000000000000000000000000000000000000
 00000000600000066000006006000006603003066000000600000000000000000000000000000000000000000000000000000000000000000000000000000000
