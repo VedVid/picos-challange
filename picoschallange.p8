@@ -89,7 +89,10 @@ function move_player()
   player.x = x
   player.y = y
  else
-  if (sprite == 17 and player.key_gold) then
+  if ((sprite == 17 and player.key_gold) or
+      (sprite == 18 and player.key_green) or
+      (sprite == 19 and player.key_gray) or
+      (sprite == 20 and player.key_white)) then
    player.x = x
    player.y = y
   end
