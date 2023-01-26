@@ -4,96 +4,97 @@ __lua__
 --main
 
 function _init()
-  player = new_player(5*8,
-           5*8, 1)
+ player = new_player(5*8,
+          5*8, 1)
 end
 
 function _update()
-  move_player()
-  update_player()
+ move_player()
+ update_player()
 end
 
 function _draw()
-  cls()
-  map((1*player.level)-1,
-      (1*player.level)-1,
-      0,
-      0,
-      16,
-      16)
-  spr(player.spr_current,
-      player.x, player.y)
+ cls()
+ map((1*player.level)-1,
+     (1*player.level)-1,
+     0,
+     0,
+     16,
+     16)
+ spr(player.spr_current,
+     player.x, player.y)
 end
+
 -->8
 --player
 
 
 function new_player(x, y, lvl)
-  local player = {}
-  player.x = x
-  player.y = y
-  player.level = lvl
-  player.spr_idle = 1
-  player.spr_left = 2
-  player.spr_right = 3
-  player.spr_up = 4
-  player.spr_down = 5
-  player.spr_current = 1
-  player.idle = 0
-  return player
+ local player = {}
+ player.x = x
+ player.y = y
+ player.level = lvl
+ player.spr_idle = 1
+ player.spr_left = 2
+ player.spr_right = 3
+ player.spr_up = 4
+ player.spr_down = 5
+ player.spr_current = 1
+ player.idle = 0
+ return player
 end
 
 
 function update_player()
-  player.idle += 1
-  if player.idle > 45 then
-    player.spr_current = player.spr_idle
-    player.idle = 0
-  end
+ player.idle += 1
+ if player.idle > 45 then
+  player.spr_current = player.spr_idle
+  player.idle = 0
+ end
 end  
 
 
 function move_player()
-  local x = player.x
-  local y = player.y
+ local x = player.x
+ local y = player.y
+ 
+ if btn(0) then
+  x -= 1
+  player.idle = 0
+  player.spr_current = player.spr_left
+ end   
+ if btn(1) then
+  x += 1
+  player.idle = 0
+  player.spr_current = player.spr_right
+ end
+ if btn(2) then
+  y -= 1
+  player.idle = 0
+  player.spr_current = player.spr_up
+ end
+ if btn(3) then
+  y += 1
+  player.idle = 0
+  player.spr_current = player.spr_down
+ end
   
-  if btn(0) then
-    x -= 1
-    player.idle = 0
-    player.spr_current = player.spr_left
-  end   
-  if btn(1) then
-    x += 1
-    player.idle = 0
-    player.spr_current = player.spr_right
-  end
-  if btn(2) then
-    y -= 1
-    player.idle = 0
-    player.spr_current = player.spr_up
-  end
-  if btn(3) then
-    y += 1
-    player.idle = 0
-    player.spr_current = player.spr_down
-  end
-  
-  local flags = collision(x, y)
-  if not flags.obstacle then
-    player.x = x
-    player.y = y
-  end
+ local flags = collision(x, y)
+ if not flags.obstacle then
+  player.x = x
+  player.y = y
+ end
 end
 
 -->8
 --map and collisions
 
 function collision(x, y)
-  local i, j = flr(x/8), flr(y/8)
-  local sprite = mget(i, j)
-  local flags = {}
-  flags.obstacle = fget(sprite, 1)
-  return flags
+ local i, j = flr(x/8), flr(y/8)
+ local sprite = mget(i, j)
+ local flags = {}
+ flags.obstacle = fget(sprite, 1)
+ return flags
 end
 __gfx__
 00000000066666600666660000666660066666600666666000000000000000000000000000000000000000000000000000000000000000000000000000000000
