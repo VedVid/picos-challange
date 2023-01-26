@@ -107,6 +107,7 @@ function move_player()
       (sprite == 20 and player.key_white)) then
    player.x = x
    player.y = y
+   remove_sprite(x, y)
   end
  end
 end
