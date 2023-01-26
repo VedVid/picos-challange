@@ -96,6 +96,7 @@ function move_player()
    elseif sprite == 35 then
     player.key_white = true
    end
+   remove_sprite(x, y)
   end
   player.x = x
   player.y = y
@@ -127,7 +128,14 @@ function detect_flags(sprite)
  flags.key = fget(sprite, 2)
  flags.door = fget(sprite, 3)
  return flags
-end 
+end
+
+
+function remove_sprite(x, y)
+ local i, j = flr(x/8), flr(y/8)
+ mset(i, j, 0)
+end
+
 __gfx__
 00000000066666600666660000666660066666600666666000000000000000000000000000000000000000000000000000000000000000000000000000000000
 00000000600000066000006006000006603003066000000600000000000000000000000000000000000000000000000000000000000000000000000000000000
