@@ -282,6 +282,35 @@ end
 
 
 function update_level()
+ for x = offset_x, offset_x+128, 8 do
+  for y = offset_y, offset_y+128, 8 do
+   local sprite = detect_sprite(x, y)
+   if (sprite == 50 or sprite == 51 or
+       sprite == 52 or sprite == 53 or
+       sprite == 54) then
+    update_fire(x, y, sprite)
+   end
+  end
+ end
+end
+
+
+function update_fire(x, y, sprite)
+ local nsprite = 0
+ if frame % 8 == 0 then
+  if sprite == 50 then
+   nsprite = 51
+  elseif sprite == 51 then
+   nsprite = 52
+  elseif sprite == 52 then
+   nsprite = 53
+  elseif sprite == 53 then
+   nsprite = 54
+  elseif sprite == 54 then
+   nsprite = 50
+  end
+ replace_sprite(x, y, nsprite)
+ end
 end
 
 -->8
@@ -290,7 +319,7 @@ end
 
 function update_frames()
  frame += 1
- if frame > 30 then
+ if frame > 100 then
   frame = 0
  end
 end
