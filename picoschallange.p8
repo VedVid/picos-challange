@@ -56,6 +56,8 @@ function _draw()
   print_level_1_info()
  elseif player.level == 3 then
   print_level_3_info()
+ elseif player.level == 4 then
+  print_level_4_info()
  end
 end
 
@@ -357,6 +359,16 @@ end
 
 -->8
 --levels' info
+
+
+function print_level_4_info()
+ print("the ", 12+offset_x, 99, 7)
+ print("arrows ", 28+offset_x, 99, 9)
+ print("will move you", 56+offset_x, 99, 7)
+ print("to the indicated place.", 12+offset_x, 99+6, 7)
+ print("beware the ", 12+offset_x, 99+12, 7)
+ print("spikes!", 56+offset_x, 99+12, 6)
+end
 
 
 function print_level_3_info()
