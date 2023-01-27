@@ -33,19 +33,19 @@ function _draw()
      player.x, player.y)
  oxg = 0
  if player.key_gold then
-  spr(32, oxg, 0)
+  spr(32, oxg+offset_x, 0+offset_y)
   oxg += 8
  end
  if player.key_green then
-  spr(33, oxg, 0)
+  spr(33, oxg+offset_x, 0+offset_y)
   oxg += 8
  end
  if player.key_gray then
-  spr(34, oxg, 0)
+  spr(34, oxg+offset_x, 0+offset_y)
   oxg += 8
  end
  if player.key_white then
-  spr(35, oxg, 0)
+  spr(35, oxg+offset_x, 0+offset_y)
   oxg += 8
  end
  if debug then
