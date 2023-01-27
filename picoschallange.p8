@@ -367,7 +367,8 @@ function print_level_4_info()
  print("will move you", 56+offset_x, 99, 7)
  print("to the indicated place.", 12+offset_x, 99+6, 7)
  print("beware the ", 12+offset_x, 99+12, 7)
- print("spikes!", 56+offset_x, 99+12, 6)
+ print("spikes", 56+offset_x, 99+12, 6)
+ print("!", 80+offset_x, 99+12, 7)
 end
 
 
@@ -376,7 +377,7 @@ function print_level_3_info()
  print("f", 52+offset_x, 105, 8)
  print("i", 56+offset_x, 105, 9)
  print("r", 60+offset_x, 105, 10)
- print("e", 64+offset_x, 105, 7)
+ print("e.", 64+offset_x, 105, 7)
 end
 
 
@@ -399,7 +400,9 @@ function print_level_1_info()
  print("v", 40, 89+24, 5)
  print("e", 44, 89+24, 6)
  print("l", 48, 89+24, 5)
+ print(".", 52, 89+24, 7)
 end
+
 __gfx__
 00000000044444400444440000444440044444400444444000000000000000000000000000000000000000000000000000000000000000000000000000000000
 00000000466666644666664004666664463663644666666400000000000000000000000000000000000000000000000000000000000000000000000000000000
