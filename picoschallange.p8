@@ -282,7 +282,32 @@ end
 
 
 function update_level()
+ if player.level == 3 then
+  update_level_3()
+ end
 end
+
+
+function update_level_3()
+ for _, v in pairs(fire3) do
+  if frame % 6 == 0 then
+   local x = v[1]
+   local y = v[2]
+   local sprite = detect_sprite(x, y)
+   if sprite == 50 then
+    replace_sprite(x, y, 51)
+   elseif sprite == 51 then
+    replace_sprite(x, y, 52)
+   elseif sprite == 52 then
+    replace_sprite(x, y, 53)
+   elseif sprite == 53 then
+    replace_sprite(x, y, 54)
+   elseif sprite == 54 then
+    replace_sprite(x, y, 50)
+   end
+  end  
+ end
+end 
 
 -->8
 --misc
@@ -290,10 +315,29 @@ end
 
 function update_frames()
  frame += 1
- if frame > 30 then
+ if frame > 100 then
   frame = 0
  end
 end
+
+-->8
+--special tiles data
+
+
+--level 3
+fire3 = {{336, 16},
+         {312, 40},
+	        {352, 64},
+	        {360, 64},
+	        {368, 64},
+	        {352, 72},
+	        {368, 72},
+	        {352, 80},
+	        {360, 80},
+	        {368, 80},
+	        {288, 56},
+	        {272, 40},
+	        {280, 24}}
 
 __gfx__
 00000000066666600666660000666660066666600666666000000000000000000000000000000000000000000000000000000000000000000000000000000000
