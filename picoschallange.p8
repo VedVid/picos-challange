@@ -236,6 +236,8 @@ end
 
 
 function restart_level()
+ --destaddr, srcaddr, len
+ reload(0x1000, 0x1000, 0x2000)
  set_up_level(true)
 end
 
