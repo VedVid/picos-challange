@@ -180,6 +180,24 @@ function move_player()
  elseif sprite == 27 then
   replace_sprite(x, y, 28)
   toggle_final_door()
+ elseif sprite == 36 then
+  replace_sprite(x, y, 37)
+  toggle_col_door(x, y, "yellow")
+ elseif sprite == 37 then
+  replace_sprite(x, y, 36)
+  toggle_col_door(x, y, "yellow")
+ elseif sprite == 38 then
+  replace_sprite(x, y, 39)
+  toggle_col_door(x, y, "white")
+ elseif sprite == 39 then
+  replace_sprite(x, y, 38)
+  toggle_col_door(x, y, "white")
+ elseif sprite == 40 then
+  replace_sprite(x, y, 41)
+  toggle_col_door(x, y, "green")
+ elseif sprite == 41 then
+  replace_sprite(x, y, 40)
+  toggle_col_door(x, y, "green")
  end
 end
 
@@ -199,6 +217,42 @@ function toggle_final_door()
   replace_sprite(x, y, 25)
  elseif sprite == 25 then
   replace_sprite(x, y, 26)
+ end
+end
+
+
+
+function toggle_col_door(x, y, col)
+ local spr_o = 0
+ local spr_c = 0
+ if col == "yellow" then
+  spr_0 = 29
+  spr_c = 17
+ elseif col == "white" then
+  spr_o = 30
+  spr_c = 20
+ elseif col == "green" then
+  spr_0 = 31
+  spr_c = 18
+ end
+ local sprite1 = detect_sprite(x+8, y)
+ local sprite2 = detect_sprite(x, y+8)
+ if not sprite1 or not sprite2 then
+  return
+ else
+  if (sprite1 == spr_0) then
+   replace_sprite(x+8, y, spr_c)
+   replace_sprite(x-8, y, spr_o)
+  elseif (sprite1 == spr_c) then
+   replace_sprite(x+8, y, spr_o)
+   replace_sprite(x-8, y, spr_c)
+  elseif (sprite2 == spr_0) then
+   replace_sprite(x, y+8, spr_c)
+   replace_sprite(x, y-8, spr_o)
+  elseif (sprite2 == spr_c) then
+   replace_sprite(x, y+8, spr_0)
+   replace_sprite(x, y-8, spr_c)
+  end
  end
 end
 
