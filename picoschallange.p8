@@ -58,6 +58,8 @@ function _draw()
   print_level_3_info()
  elseif player.level == 4 then
   print_level_4_info()
+ elseif player.level == 5 then
+  print_level_5_info()
  end
 end
 
@@ -381,6 +383,13 @@ end
 
 -->8
 --levels' info
+
+
+function print_level_5_info()
+ print("some ", 12+offset_x, 113, 7)
+ print("walls ", 32+offset_x, 113, 1)
+ print("are fake...", 56+offset_x, 113, 7)
+end
 
 
 function print_level_4_info()
