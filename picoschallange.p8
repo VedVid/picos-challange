@@ -54,6 +54,8 @@ function _draw()
  end
  if player.level == 1 then
   print_level_1_info()
+ elseif player.level == 2 then
+  print_level_2_info()
  elseif player.level == 3 then
   print_level_3_info()
  elseif player.level == 4 then
@@ -463,6 +465,20 @@ function print_level_3_info()
  print("i", 56+offset_x, 105, 9)
  print("r", 60+offset_x, 105, 10)
  print("e.", 64+offset_x, 105, 7)
+end
+
+
+function print_level_2_info()
+ print("use the wall ", 12+offset_x, 106, 7)
+ print("s", 64+offset_x, 106, 9)
+ print("w", 68+offset_x, 106, 10)
+ print("i", 72+offset_x, 106, 9)
+ print("t", 76+offset_x, 106, 6)
+ print("c", 80+offset_x, 106, 7)
+ print("h", 84+offset_x, 106, 3)
+ print("e", 88+offset_x, 106, 11)
+ print("s", 92+offset_x, 106, 3)
+ print("to open or close the doors.", 12+offset_x, 112, 7)
 end
 
 
