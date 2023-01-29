@@ -83,6 +83,7 @@ function new_player()
  player.x = 0
  player.y = 0
  player.level = 1
+ player.lives = 3
  player.spr_idle = 1
  player.spr_left = 2
  player.spr_right = 3
@@ -150,7 +151,7 @@ function move_player()
   player.x = x
   player.y = y
   if flags.dead then
-   restart_level()
+   restart_level(player.lives - 1)
    return
   end
   if sprite == 21 then
@@ -306,10 +307,11 @@ function next_level()
 end
 
 
-function restart_level()
+function restart_level(lives)
  --destaddr, srcaddr, len
  reload(0x1000, 0x1000, 0x2000)
  set_up_level(true)
+ player.lives = lives
 end
 
 
