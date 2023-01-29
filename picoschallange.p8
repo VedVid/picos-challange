@@ -440,7 +440,7 @@ end
 
 function update_fire(x, y, sprite)
  local nsprite = 0
- if frame % 8 == 0 then
+ if mod(8) then
   if sprite == 50 then
    nsprite = 51
   elseif sprite == 51 then
