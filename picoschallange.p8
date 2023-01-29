@@ -430,6 +430,8 @@ function update_level()
        sprite == 52 or sprite == 53 or
        sprite == 54) then
     update_fire(x, y, sprite)
+   elseif (sprite == 48 or sprite == 49) then
+    update_water(x, y, sprite)
    end
   end
  end
@@ -451,6 +453,19 @@ function update_fire(x, y, sprite)
    nsprite = 50
   end
  replace_sprite(x, y, nsprite)
+ end
+end
+
+
+function update_water(x, y, sprite)
+ local nsprite = 0
+ if mod(20) then
+  if sprite == 48 then
+   nsprite = 49
+  else
+   nsprite = 48
+  end
+  replace_sprite(x, y, nsprite)
  end
 end
 
