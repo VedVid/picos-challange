@@ -4,7 +4,7 @@ __lua__
 --main
 
 function _init()
- debug = true
+ debug = false
  victorious = false
  frame = 0
  offset_x = 0
