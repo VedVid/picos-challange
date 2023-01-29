@@ -226,13 +226,13 @@ function toggle_col_door(x, y, col)
  local spr_o = 0
  local spr_c = 0
  if col == "yellow" then
-  spr_0 = 29
+  spr_o = 29
   spr_c = 17
  elseif col == "white" then
   spr_o = 30
   spr_c = 20
  elseif col == "green" then
-  spr_0 = 31
+  spr_o = 31
   spr_c = 18
  end
  local sprite1 = detect_sprite(x+8, y)
@@ -240,17 +240,17 @@ function toggle_col_door(x, y, col)
  if not sprite1 or not sprite2 then
   return
  else
-  if (sprite1 == spr_0) then
+  if (sprite1 == spr_o) then
    replace_sprite(x+8, y, spr_c)
    replace_sprite(x-8, y, spr_o)
   elseif (sprite1 == spr_c) then
    replace_sprite(x+8, y, spr_o)
    replace_sprite(x-8, y, spr_c)
-  elseif (sprite2 == spr_0) then
+  elseif (sprite2 == spr_o) then
    replace_sprite(x, y+8, spr_c)
    replace_sprite(x, y-8, spr_o)
   elseif (sprite2 == spr_c) then
-   replace_sprite(x, y+8, spr_0)
+   replace_sprite(x, y+8, spr_o)
    replace_sprite(x, y-8, spr_c)
   end
  end
